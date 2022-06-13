@@ -1,0 +1,12 @@
+{
+  "name": "scrap-recipes",
+  "displayName": "scrap-recipes",
+  "expo": {
+    "name": "scrap-recipes",
+    "slug": "scrap-recipes",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
