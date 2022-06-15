@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ListItemProps } from './Types';
 
-
-const ListItem = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
+function ListItem({listItem}: ListItemProps) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{listItem.title}</Text>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   item: {

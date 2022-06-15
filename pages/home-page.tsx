@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import {
   Button, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
-import ListItem from '../components/list/item';
+import ListItem from '../components/list/Item';
+import { ListItemProps } from '../components/list/Types';
 
 function HomePage() {
   const [recipes, setRecipes] = useState([]);
 
-  const renderItem = ({ item }) => (
-    <ListItem title={item.title} />
+  const renderItem = ({item}: ListItemProps) => (
+    <ListItem listItem={item} />
   );
 
   const addNewRecipe = () => {
