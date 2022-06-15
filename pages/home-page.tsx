@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
 import ListItem from '../components/list/Item';
 import { ListItemProps } from '../components/list/Types';
+import SearchBox from '../components/searchbox/SearchBox';
 
 function HomePage() {
   const [recipes, setRecipes] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   const renderItem = ({item}: ListItemProps) => (
     <ListItem listItem={item} />
   );
+
+  const filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(searchText.toLowerCase()));
 
   const addNewRecipe = () => {
     setRecipes([...recipes, {
@@ -23,9 +27,10 @@ function HomePage() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Scrap Recipes</Text>
+        <SearchBox searchText={searchText} onChangeSearchText={setSearchText} />
       </View>
       <FlatList
-        data={recipes}
+        data={filteredRecipes}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
