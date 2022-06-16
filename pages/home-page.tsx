@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Button, SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
@@ -28,7 +28,10 @@ function HomePage() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Scrap Recipes</Text>
-        <SearchBox searchText={searchText} onChangeSearchText={setSearchText} />
+        <SearchBox
+          onChangeSearchText={setSearchText}
+          placeholder="Search recipes"
+        />
       </View>
       <List
         data={filteredRecipes}
@@ -43,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    width: '100%',
   },
   title: {
     fontSize: 23,

@@ -10,13 +10,15 @@ function List(props: ListProps<T>) {
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
-      contentContainerStyle={style?.list}
+      contentContainerStyle={style?.list && styles.container}
     />
   );
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    width: '100%',
+  },
 });
 
 export default List;

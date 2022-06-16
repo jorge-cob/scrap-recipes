@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-function SearchBox({ searchText, onChangeSearchText }) {
+function SearchBox({ onChangeSearchText, placeholder }) {
   return (
     <TextInput
       onChangeText={(newText) => onChangeSearchText(newText)}
-      value={searchText}
-      placeholder="Search recipes"
+      placeholder={placeholder}
     />
   );
 }
