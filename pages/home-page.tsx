@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Button, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View,
+  Button, SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
-import ListItem from '../components/list/Item';
+import List from '../components/list/List';
+import ListItem from '../components/list/ListItem';
 import { ListItemProps } from '../components/list/Types';
 import SearchBox from '../components/searchbox/SearchBox';
 
@@ -29,10 +30,9 @@ function HomePage() {
         <Text style={styles.title}>Scrap Recipes</Text>
         <SearchBox searchText={searchText} onChangeSearchText={setSearchText} />
       </View>
-      <FlatList
+      <List
         data={filteredRecipes}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
       />
       <Button onPress={() => addNewRecipe()} title="Add new recipe" />
     </SafeAreaView>
