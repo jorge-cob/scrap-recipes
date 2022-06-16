@@ -3,7 +3,6 @@ import {
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { ListItemProps } from './Types';
 
 const styles = StyleSheet.create({
   item: {
@@ -20,8 +19,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function ListItem(listItem : ListItemProps): React.ReactElement {
-  const { title } = listItem;
+function ListItem({ listItem }: any): React.ReactElement {
+  const { title } = listItem.item;
   const [expanded, setExpanded] = useState(false);
   const handleIconPress = () => setExpanded(!expanded);
 

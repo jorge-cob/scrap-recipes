@@ -29,7 +29,7 @@ function HomePage(): React.ReactElement {
   const [recipes, setRecipes] = useState<RecipeProps[]>([]);
   const [searchText, setSearchText] = useState('');
 
-  const renderItem = ({ item }: any) => (
+  const renderItem = (item: any) => (
     <ListItem listItem={item} />
   );
 

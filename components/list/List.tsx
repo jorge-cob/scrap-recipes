@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function List(props: ListProps<T>): React.ReactElement {
+function List<T>(props: ListProps<T>): React.ReactElement {
   const { data, renderItem, style } = props;
 
   return (
