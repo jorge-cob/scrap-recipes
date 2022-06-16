@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ListProps } from './Types';
 
-function List(props: ListProps<T>) {
+function List(props: ListProps<T>): React.ReactElement {
   const { data, renderItem, style } = props;
 
   return (

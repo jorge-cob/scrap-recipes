@@ -15,7 +15,8 @@ function HomePage() {
     <ListItem listItem={item} />
   );
 
-  const filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(searchText.toLowerCase()));
+  const filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase()
+    .includes(searchText.toLowerCase()));
 
   const addNewRecipe = () => {
     setRecipes([...recipes, {

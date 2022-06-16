@@ -27,6 +27,7 @@
     "@types/react": "~17.0.21",
     "@types/react-dom": "^18.0.5",
     "@types/react-native": "~0.67.6",
+    "@types/react-native-vector-icons": "^6.4.10",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "babel-preset-expo": "~9.1.0",
@@ -42,5 +43,6 @@
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "private": true,
+  "resolutions": { "@types/react": "18.0.1" }
 }
