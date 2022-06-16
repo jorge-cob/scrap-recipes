@@ -20,13 +20,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function ListItem({ listItem }: ListItemProps): React.ReactElement {
+function ListItem(listItem : ListItemProps): React.ReactElement {
+  const { title } = listItem;
   const [expanded, setExpanded] = useState(false);
   const handleIconPress = () => setExpanded(!expanded);
 
   return (
     <View style={styles.item}>
-      <Text style={styles.title}>{listItem.title}</Text>
+      <Text style={styles.title}>{title}</Text>
       <TouchableOpacity style={{
         height: 30, justifyContent: 'center', alignItems: 'center',
       }}

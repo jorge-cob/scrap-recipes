@@ -4,21 +4,39 @@ import {
 } from 'react-native';
 import List from '../components/list/List';
 import ListItem from '../components/list/ListItem';
-import { ListItemProps } from '../components/list/Types';
 import SearchBox from '../components/searchbox/SearchBox';
+import { RecipeProps } from './Types';
 
-function HomePage() {
-  const [recipes, setRecipes] = useState([]);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+    width: '100%',
+  },
+  title: {
+    fontSize: 23,
+  },
+  app: {
+    marginHorizontal: 'auto',
+    maxWidth: 500,
+  },
+  header: {
+    padding: 20,
+  },
+});
+
+function HomePage(): React.ReactElement {
+  const [recipes, setRecipes] = useState<RecipeProps[]>([]);
   const [searchText, setSearchText] = useState('');
 
-  const renderItem = ({item}: ListItemProps) => (
+  const renderItem = ({ item }: any) => (
     <ListItem listItem={item} />
   );
 
-  const filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase()
+  const filteredRecipes = recipes.filter((recipe: RecipeProps) => recipe.title.toLowerCase()
     .includes(searchText.toLowerCase()));
 
-  const addNewRecipe = () => {
+  function addNewRecipe() {
     setRecipes([...recipes, {
       id: recipes.length + 1,
       title: `Recipe ${recipes.length + 1}`,
@@ -42,23 +60,5 @@ function HomePage() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    width: '100%',
-  },
-  title: {
-    fontSize: 23,
-  },
-  app: {
-    marginHorizontal: 'auto',
-    maxWidth: 500,
-  },
-  header: {
-    padding: 20,
-  },
-});
 
 export default HomePage;

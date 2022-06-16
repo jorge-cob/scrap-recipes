@@ -34,12 +34,6 @@
         "no-shadow": "off",
         "react/require-default-props": "off",
         "@typescript-eslint/no-shadow": ["error"],
-        "prettier/prettier": [
-          "error",
-          {
-            "endOfLine": "auto"
-          }
-        ],
         "spaced-comment": [
           "error",
           "always",
@@ -109,12 +103,6 @@
           }
         ],
         "import/no-import-module-exports": "off",
-        "jest/expect-expect": [
-          "error",
-          {
-            "assertFunctionNames": ["expect", "fc.assert", "it.each"]
-          }
-        ],
         "react/jsx-props-no-spreading": "off",
         "react/jsx-no-useless-fragment": [
           2,
