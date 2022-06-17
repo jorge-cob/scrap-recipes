@@ -1,14 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HomePage from './pages/home-page';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <HomePage />
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +10,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function App(): React.ReactElement {
+  return (
+    <View style={styles.container}>
+      <HomePage />
+    </View>
+  );
+}

@@ -41,7 +41,7 @@ function HomePage(): React.ReactElement {
       id: recipes.length + 1,
       title: `Recipe ${recipes.length + 1}`,
     }]);
-  };
+  }
 
   return (
     <SafeAreaView style={styles.container}>
