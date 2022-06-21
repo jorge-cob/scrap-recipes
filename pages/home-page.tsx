@@ -40,6 +40,15 @@ function HomePage(): React.ReactElement {
     setRecipes([...recipes, {
       id: recipes.length + 1,
       title: `Recipe ${recipes.length + 1}`,
+      description: '',
+      basicIngredients: [
+        {
+          id: 'ing_1',
+          name: 'avocado',
+          type: 'vegetable'
+        }
+      ],
+      optionalIngredients: []
     }]);
   }
 
