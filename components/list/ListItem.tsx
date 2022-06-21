@@ -5,11 +5,19 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
-  item: {
+  itemTitle: {
     flex: 1,
     backgroundColor: '#f9c2ff',
     padding: 20,
-    marginVertical: 8,
+    marginTop: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  itemExpanded: {
+    flex: 1,
+    backgroundColor: '#f9c2ff',
+    padding: 20,
     marginHorizontal: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -25,19 +33,26 @@ function ListItem({ listItem }: any): React.ReactElement {
   const handleIconPress = () => setExpanded(!expanded);
 
   return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity style={{
-        height: 30, justifyContent: 'center', alignItems: 'center',
-      }}
-      >
-        <Icon
-          name={expanded ? 'angle-down' : 'angle-up'}
-          size={30}
-          color="#000"
-          onPress={handleIconPress}
-        />
-      </TouchableOpacity>
+    <View style={{ flexDirection: 'column' }}>
+      <View style={styles.itemTitle}>
+        <Text style={styles.title}>{title}</Text>
+        <TouchableOpacity style={{
+          height: 30, justifyContent: 'center', alignItems: 'center',
+        }}
+        >
+          <Icon
+            name={expanded ? 'angle-down' : 'angle-up'}
+            size={30}
+            color="#000"
+            onPress={handleIconPress}
+          />
+        </TouchableOpacity>
+      </View>
+      { expanded && (
+        <View style={styles.itemExpanded}>
+          <Text> Here ingredients </Text>
+        </View>
+      )}
     </View>
   );
 }
