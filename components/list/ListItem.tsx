@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
 });
 
 function ListItem({ listItem }: any): React.ReactElement {
-  const { title, basicIngredients } = listItem.item;
+  const { name, basicIngredients } = listItem.item;
   const [expanded, setExpanded] = useState(false);
   const handleIconPress = () => setExpanded(!expanded);
 
   return (
     <View style={{ flexDirection: 'column' }}>
       <View style={styles.itemTitle}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{name}</Text>
         <TouchableOpacity style={{
           height: 30, justifyContent: 'center', alignItems: 'center',
         }}

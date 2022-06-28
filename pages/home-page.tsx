@@ -5,6 +5,7 @@ import {
 import List from '../components/list/List';
 import ListItem from '../components/list/ListItem';
 import SearchBox from '../components/searchbox/SearchBox';
+import { useRecipesContext } from '../Context';
 import { RecipeProps } from './Types';
 
 const styles = StyleSheet.create({
@@ -26,14 +27,14 @@ const styles = StyleSheet.create({
 });
 
 function HomePage({ navigation }): React.ReactElement {
-  const [recipes, setRecipes] = useState<RecipeProps[]>([]);
+  const { recipes } = useRecipesContext();
   const [searchText, setSearchText] = useState('');
 
   const renderItem = (item: any) => (
     <ListItem listItem={item} />
   );
 
-  const filteredRecipes = recipes.filter((recipe: RecipeProps) => recipe.title.toLowerCase()
+  const filteredRecipes = recipes.filter((recipe: RecipeProps) => recipe.name.toLowerCase()
     .includes(searchText.toLowerCase()));
 
   return (

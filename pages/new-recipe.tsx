@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Button, View,
+  SafeAreaView, StatusBar, StyleSheet, TextInput, Button,
 } from 'react-native';
 import { Formik } from 'formik';
+import { useRecipesContext } from '../Context';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,15 +19,17 @@ const styles = StyleSheet.create({
   },
 });
 
-function NewRecipe(): React.ReactElement {
+function NewRecipe({ navigation }): React.ReactElement {
+  const { updateRecipes } = useRecipesContext();
   const handleOnSubmit = (newValues) => {
-    console.log('newValues', newValues);
-  }
+    updateRecipes(newValues);
+    navigation.navigate('Home');
+  };
 
   return (
     <Formik
       initialValues={{
-        recipeName: '',
+        name: '',
         description: '',
         basicIngredients: [],
         optionalIngredients: []
@@ -36,8 +39,8 @@ function NewRecipe(): React.ReactElement {
       {({ handleChange, handleSubmit, values }) => (
         <SafeAreaView style={styles.container}>
           <TextInput
-            onChangeText={handleChange('recipeName')}
-            value={values.recipeName}
+            onChangeText={handleChange('name')}
+            value={values.name}
             placeholder="Enter recipe name"
           />
           <Button onPress={handleSubmit} title="Submit" />
