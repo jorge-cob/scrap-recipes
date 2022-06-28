@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function HomePage(): React.ReactElement {
+function HomePage({ navigation }): React.ReactElement {
   const [recipes, setRecipes] = useState<RecipeProps[]>([]);
   const [searchText, setSearchText] = useState('');
 
@@ -35,22 +35,6 @@ function HomePage(): React.ReactElement {
 
   const filteredRecipes = recipes.filter((recipe: RecipeProps) => recipe.title.toLowerCase()
     .includes(searchText.toLowerCase()));
-
-  function addNewRecipe() {
-    setRecipes([...recipes, {
-      id: recipes.length + 1,
-      title: `Recipe ${recipes.length + 1}`,
-      description: '',
-      basicIngredients: [
-        {
-          id: 'ing_1',
-          name: 'avocado',
-          type: 'vegetable'
-        }
-      ],
-      optionalIngredients: []
-    }]);
-  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -65,7 +49,7 @@ function HomePage(): React.ReactElement {
         data={filteredRecipes}
         renderItem={renderItem}
       />
-      <Button onPress={() => addNewRecipe()} title="Add new recipe" />
+      <Button onPress={() => navigation.navigate('NewRecipe')} title="Add new recipe" />
     </SafeAreaView>
   );
 }

@@ -3,6 +3,7 @@ import {
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Ingredient } from '../../pages/Types';
 
 const styles = StyleSheet.create({
   itemTitle: {
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
 });
 
 function ListItem({ listItem }: any): React.ReactElement {
-  const { title } = listItem.item;
+  const { title, basicIngredients } = listItem.item;
   const [expanded, setExpanded] = useState(false);
   const handleIconPress = () => setExpanded(!expanded);
 
@@ -50,7 +51,12 @@ function ListItem({ listItem }: any): React.ReactElement {
       </View>
       { expanded && (
         <View style={styles.itemExpanded}>
-          <Text> Here ingredients </Text>
+          {basicIngredients.map((item: Ingredient) => (
+            <Text>
+              {item.name}
+            </Text>
+          ))}
+
         </View>
       )}
     </View>
