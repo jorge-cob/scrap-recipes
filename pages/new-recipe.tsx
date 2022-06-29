@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
   },
+  input: {
+    marginTop: 20,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 10,
+  },
 });
 
 function NewRecipe({ navigation }): React.ReactElement {
@@ -39,9 +46,18 @@ function NewRecipe({ navigation }): React.ReactElement {
       {({ handleChange, handleSubmit, values }) => (
         <SafeAreaView style={styles.container}>
           <TextInput
+            style={styles.input}
             onChangeText={handleChange('name')}
             value={values.name}
             placeholder="Enter recipe name"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={handleChange('description')}
+            value={values.description}
+            placeholder="Enter recipe description"
+            multiline
+            numberOfLines={10}
           />
           <Button onPress={handleSubmit} title="Submit" />
         </SafeAreaView>
