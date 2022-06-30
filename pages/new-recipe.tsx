@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Button,
+  SafeAreaView, StatusBar, StyleSheet, TextInput, Button, Text
 } from 'react-native';
 import { Formik } from 'formik';
 import { useRecipesContext } from '../Context';
@@ -13,13 +13,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 23,
+    margin: 12,
   },
   header: {
     padding: 20,
   },
   input: {
-    marginTop: 20,
-    margin: 12,
+    marginBottom: 20,
+    marginHorizontal: 12,
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
@@ -45,12 +46,14 @@ function NewRecipe({ navigation }): React.ReactElement {
     >
       {({ handleChange, handleSubmit, values }) => (
         <SafeAreaView style={styles.container}>
+          <Text style={styles.title}> Recipe name: </Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChange('name')}
             value={values.name}
             placeholder="Enter recipe name"
           />
+          <Text style={styles.title}> Recipe description: </Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChange('description')}
