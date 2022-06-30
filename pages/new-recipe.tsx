@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Button, Text
+  SafeAreaView, StatusBar, StyleSheet, TextInput, Button, Text, Pressable
 } from 'react-native';
 import { Formik } from 'formik';
 import { useRecipesContext } from '../Context';
@@ -18,6 +18,13 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
   },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
   input: {
     marginBottom: 20,
     marginHorizontal: 12,
@@ -25,6 +32,16 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    marginHorizontal: 12,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  }
 });
 
 function NewRecipe({ navigation }): React.ReactElement {
@@ -62,7 +79,9 @@ function NewRecipe({ navigation }): React.ReactElement {
             multiline
             numberOfLines={10}
           />
-          <Button onPress={handleSubmit} title="Submit" />
+          <Pressable style={styles.button} onPress={handleSubmit}>
+            <Text style={styles.text}>Submit</Text>
+          </Pressable>
         </SafeAreaView>
       )}
 
