@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
+import { STRONG_ORANGE } from '../assets/theme/constants/Colors';
 import SubmitButton from '../components/button/button';
 import List from '../components/list/List';
 import ListItem from '../components/list/ListItem';
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     color: 'white',
-    backgroundColor: 'blue',
+    backgroundColor: STRONG_ORANGE,
     width: '100%',
     textAlign: 'center',
   },
