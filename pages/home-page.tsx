@@ -13,17 +13,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    width: '100%',
   },
   title: {
-    fontSize: 23,
+    fontSize: 34,
+    color: 'white',
+    backgroundColor: 'blue',
+    width: '100%',
+    textAlign: 'center',
   },
   app: {
     marginHorizontal: 'auto',
     maxWidth: 500,
   },
   header: {
-    padding: 20,
+    alignItems: 'center'
   },
 });
 
