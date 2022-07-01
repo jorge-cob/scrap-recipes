@@ -15,7 +15,7 @@ export default function App(): React.ReactElement {
           <Stack.Screen
             name="Home"
             component={HomePage}
-            options={{ title: 'Welcome' }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen name="NewRecipe" component={NewRecipe} />
         </Stack.Navigator>

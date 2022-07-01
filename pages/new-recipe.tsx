@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Button, Text, Pressable
+  SafeAreaView, StatusBar, StyleSheet, TextInput, Text
 } from 'react-native';
 import { Formik } from 'formik';
 import { useRecipesContext } from '../Context';
+import SubmitButton from '../components/button/button';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,29 +19,12 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
   },
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'white',
-  },
   input: {
     marginBottom: 20,
     marginHorizontal: 12,
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    marginHorizontal: 12,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: 'black',
   }
 });
 
@@ -79,9 +63,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             multiline
             numberOfLines={10}
           />
-          <Pressable style={styles.button} onPress={handleSubmit}>
-            <Text style={styles.text}>Submit</Text>
-          </Pressable>
+          <SubmitButton handleOnPress={handleSubmit} title="Submit" />
         </SafeAreaView>
       )}
 

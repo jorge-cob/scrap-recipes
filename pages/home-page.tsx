@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
-  Button, SafeAreaView, StatusBar, StyleSheet, Text, View,
+  SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
+import SubmitButton from '../components/button/button';
 import List from '../components/list/List';
 import ListItem from '../components/list/ListItem';
 import SearchBox from '../components/searchbox/SearchBox';
@@ -50,7 +51,7 @@ function HomePage({ navigation }): React.ReactElement {
         data={filteredRecipes}
         renderItem={renderItem}
       />
-      <Button onPress={() => navigation.navigate('NewRecipe')} title="Add new recipe" />
+      <SubmitButton handleOnPress={() => navigation.navigate('NewRecipe')} title="Add new recipe" />
     </SafeAreaView>
   );
 }
