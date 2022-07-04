@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Text
+  SafeAreaView, StatusBar, StyleSheet, TextInput, Text, View
 } from 'react-native';
 import { Formik } from 'formik';
+import { ColorPicker } from 'react-native-btr';
 import { useRecipesContext } from '../Context';
 import SubmitButton from '../components/button/button';
 
@@ -25,6 +26,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
+  },
+  colorPicker: {
+    marginVertical: 10,
   }
 });
 
@@ -39,13 +43,16 @@ function NewRecipe({ navigation }): React.ReactElement {
     <Formik
       initialValues={{
         name: '',
+        color: '#F44336',
         description: '',
         basicIngredients: [],
         optionalIngredients: []
       }}
-      onSubmit={values => handleOnSubmit(values)}
+      onSubmit={(values) => handleOnSubmit(values)}
     >
-      {({ handleChange, handleSubmit, values }) => (
+      {({
+        handleChange, handleSubmit, values, setFieldValue
+      }) => (
         <SafeAreaView style={styles.container}>
           <Text style={styles.title}> Recipe name: </Text>
           <TextInput
@@ -54,6 +61,12 @@ function NewRecipe({ navigation }): React.ReactElement {
             value={values.name}
             placeholder="Enter recipe name"
           />
+          <View style={styles.colorPicker}>
+            <ColorPicker
+              selectedColor={values.color}
+              onSelect={(e) => setFieldValue('color', e)}
+            />
+          </View>
           <Text style={styles.title}> Recipe description: </Text>
           <TextInput
             style={styles.input}
