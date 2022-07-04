@@ -8,7 +8,6 @@ import { Ingredient } from '../../pages/Types';
 const styles = StyleSheet.create({
   itemTitle: {
     flex: 1,
-    backgroundColor: '#f9c2ff',
     padding: 20,
     marginTop: 8,
     marginHorizontal: 16,
@@ -17,7 +16,6 @@ const styles = StyleSheet.create({
   },
   itemExpanded: {
     flex: 1,
-    backgroundColor: '#f9c2ff',
     padding: 20,
     marginHorizontal: 16,
     flexDirection: 'row',
@@ -29,13 +27,13 @@ const styles = StyleSheet.create({
 });
 
 function ListItem({ listItem }: any): React.ReactElement {
-  const { name, basicIngredients } = listItem.item;
+  const { name, basicIngredients, color, description } = listItem.item;
   const [expanded, setExpanded] = useState(false);
   const handleIconPress = () => setExpanded(!expanded);
 
   return (
     <View style={{ flexDirection: 'column' }}>
-      <View style={styles.itemTitle}>
+      <View style={[styles.itemTitle, { backgroundColor: color }]}>
         <Text style={styles.title}>{name}</Text>
         <TouchableOpacity style={{
           height: 30, justifyContent: 'center', alignItems: 'center',
@@ -50,7 +48,10 @@ function ListItem({ listItem }: any): React.ReactElement {
         </TouchableOpacity>
       </View>
       { expanded && (
-        <View style={styles.itemExpanded}>
+        <View style={[styles.itemExpanded, { backgroundColor: color }]}>
+          <Text>
+            {description}
+          </Text>
           {basicIngredients.map((item: Ingredient) => (
             <Text>
               {item.name}
