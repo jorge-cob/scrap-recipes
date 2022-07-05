@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   SafeAreaView, StatusBar, StyleSheet, TextInput, Text, View
 } from 'react-native';
@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import { ColorPicker } from 'react-native-btr';
 import { useRecipesContext } from '../Context';
 import SubmitButton from '../components/button/button';
+import CustomMultiSelect from '../components/multiSelect/CustomMultiSelect';
 
 const styles = StyleSheet.create({
   container: {
@@ -76,6 +77,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             multiline
             numberOfLines={10}
           />
+          <CustomMultiSelect />
           <SubmitButton handleOnPress={handleSubmit} title="Submit" />
         </SafeAreaView>
       )}
