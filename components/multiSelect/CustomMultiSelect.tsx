@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import SubmitButton from '../button/button';
 
 function CustomMultiSelect() {
   const [items, setItems] = useState([
@@ -43,14 +44,7 @@ function CustomMultiSelect() {
 
   function AddItemComponent(searchText: string) {
     return (
-      <TouchableOpacity
-        style={{
-          height: 30, justifyContent: 'center', alignItems: 'center',
-        }}
-        onPress={() => addItemToList(searchText)}
-      >
-        <Text> Add {searchText} as ingredient </Text>
-      </TouchableOpacity>
+      <SubmitButton handleOnPress={() => addItemToList(searchText)} title={`Add ${searchText} as ingredient`} />
     );
   }
 
