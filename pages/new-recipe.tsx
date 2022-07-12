@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
+    textAlignVertical: 'top'
   },
   colorPicker: {
     marginVertical: 10,
