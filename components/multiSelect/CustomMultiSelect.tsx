@@ -1,49 +1,58 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-
-const items = [
-  // this is the parent or 'item'
-  {
-    name: 'Fruits',
-    id: 0,
-    // these are the children or 'sub items'
-    children: [
-      {
-        name: 'Apple',
-        id: 10,
-      },
-      {
-        name: 'Strawberry',
-        id: 17,
-      },
-      {
-        name: 'Pineapple',
-        id: 13,
-      },
-      {
-        name: 'Banana',
-        id: 14,
-      },
-      {
-        name: 'Watermelon',
-        id: 15,
-      },
-      {
-        name: 'Kiwi fruit',
-        id: 16,
-      },
-    ],
-  },
-];
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function CustomMultiSelect() {
+  const [items, setItems] = useState([
+    {
+      name: '',
+      id: 0,
+      ingredients: [
+        {
+          name: 'Apple',
+          id: 1,
+        },
+        {
+          name: 'Strawberry',
+          id: 2,
+        },
+      ],
+    },
+  ]);
   const [selectedItems, setSelectedItems] = useState([]);
 
   const onSelectedItemsChange = (selectedItems) => {
     setSelectedItems(selectedItems);
   };
+
+  function addItemToList(searchText: string) {
+    setItems((items) => {
+      items[0] = {
+        ...items[0],
+        ingredients: [...items[0].ingredients, {
+          name: searchText,
+          id: items[0].ingredients.length + 1
+        }]
+      };
+
+      return [...items];
+    });
+  }
+
+  function AddItemComponent(searchText: string) {
+    return (
+      <TouchableOpacity
+        style={{
+          height: 30, justifyContent: 'center', alignItems: 'center',
+        }}
+        onPress={() => addItemToList(searchText)}
+      >
+        <Text> Add {searchText} as ingredient </Text>
+      </TouchableOpacity>
+    );
+  }
 
   return (
     <View>
@@ -51,12 +60,14 @@ function CustomMultiSelect() {
         items={items}
         IconRenderer={Icon}
         uniqueKey="id"
-        subKey="children"
-        selectText="Choose some things..."
-        showDropDowns
+        subKey="ingredients"
+        searchPlaceholderText="Search ingredient"
+        selectText="Choose some ingredients..."
+        showDropDowns={false}
         readOnlyHeadings
         onSelectedItemsChange={onSelectedItemsChange}
         selectedItems={selectedItems}
+        noResultsComponent={(searchTerm) => AddItemComponent(searchTerm)}
       />
     </View>
   );
