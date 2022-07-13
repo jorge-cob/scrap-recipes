@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import SubmitButton from '../button/button';
 
 function CustomMultiSelect() {
@@ -62,6 +61,11 @@ function CustomMultiSelect() {
         onSelectedItemsChange={onSelectedItemsChange}
         selectedItems={selectedItems}
         noResultsComponent={(searchTerm) => AddItemComponent(searchTerm)}
+        styles={{ button: {
+          backgroundColor: '#F44336',
+          height: 60,
+          flex: 1
+        }}}
       />
     </View>
   );
