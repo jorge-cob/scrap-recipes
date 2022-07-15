@@ -31,8 +31,11 @@ const styles = StyleSheet.create({
   },
   colorPicker: {
     marginVertical: 10,
+    marginHorizontal: 40
   }
 });
+
+const colors = ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548'];
 
 function NewRecipe({ navigation }): React.ReactElement {
   const { updateRecipes } = useRecipesContext();
@@ -67,6 +70,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             <ColorPicker
               selectedColor={values.color}
               onSelect={(e) => setFieldValue('color', e)}
+              colors={colors}
             />
           </View>
           <Text style={styles.title}> Recipe description: </Text>
