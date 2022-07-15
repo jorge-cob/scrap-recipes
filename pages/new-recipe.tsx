@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   colorPicker: {
     marginVertical: 10,
-    marginHorizontal: 40
+    marginHorizontal: 10
   }
 });
 
