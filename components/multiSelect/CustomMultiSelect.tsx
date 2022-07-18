@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import { MaterialIcons } from '@expo/vector-icons';
 import SubmitButton from '../button/button';
 import { PURE_BLUE } from '../../assets/theme/constants/Colors';
 
@@ -63,7 +63,7 @@ function CustomMultiSelect() {
     <View style={styles.container}>
       <SectionedMultiSelect
         items={items}
-        IconRenderer={Icon}
+        IconRenderer={MaterialIcons}
         uniqueKey="id"
         subKey="ingredients"
         searchPlaceholderText="Search ingredient"
