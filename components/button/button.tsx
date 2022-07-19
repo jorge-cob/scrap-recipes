@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
   }
 });
 
-function SubmitButton({ handleOnPress, title }) {
+function SubmitButton({ handleOnPress, title, buttonStyle, textStyle }) {
   return (
-    <Pressable style={styles.button} onPress={handleOnPress}>
-      <Text style={styles.text}>{title}</Text>
+    <Pressable style={[styles.button, buttonStyle]} onPress={handleOnPress}>
+      <Text style={[styles.text, textStyle]}>{title}</Text>
     </Pressable>
   );
 }

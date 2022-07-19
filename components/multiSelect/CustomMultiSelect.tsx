@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { MaterialIcons } from '@expo/vector-icons';
 import SubmitButton from '../button/button';
-import { PURE_BLUE } from '../../assets/theme/constants/Colors';
+import { PURE_BLUE, STRONG_PURE_BLUE, WHITE } from '../../assets/theme/constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,19 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     width: '96%'
   },
+  newIngredientButton: {
+    backgroundColor: WHITE,
+    marginTop: 20,
+    borderWidth: 2,
+    borderColor: STRONG_PURE_BLUE,
+    borderRadius: 6,
+    width: '60%',
+    alignSelf: 'center',
+  },
+  newIngredientText: {
+    color: STRONG_PURE_BLUE,
+    fontSize: 24
+  }
 });
 
 function CustomMultiSelect() {
@@ -54,7 +67,12 @@ function CustomMultiSelect() {
 
   function AddItemComponent(searchText: string) {
     return (
-      <SubmitButton handleOnPress={() => addItemToList(searchText)} title={`Add ${searchText}`} />
+      <SubmitButton
+        handleOnPress={() => addItemToList(searchText)}
+        title={`Add ${searchText}`}
+        textStyle={styles.newIngredientText}
+        buttonStyle={styles.newIngredientButton}
+      />
       //insert icon here
     );
   }
