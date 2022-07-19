@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   newIngredientText: {
     color: STRONG_PURE_BLUE,
-    fontSize: 24
+    fontSize: 22
   }
 });
 
