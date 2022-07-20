@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { Formik } from 'formik';
 import { ColorPicker } from 'react-native-btr';
+import * as Yup from 'yup';
 import { useRecipesContext } from '../Context';
 import SubmitButton from '../components/button/button';
 import CustomMultiSelect from '../components/multiSelect/CustomMultiSelect';
@@ -37,6 +38,16 @@ const styles = StyleSheet.create({
 
 const colors = ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548'];
 
+const RecipeSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, 'Please enter a longer name')
+    .max(50, 'Max 50 characters')
+    .required('Required field'),
+  description: Yup.string()
+    .min(3, 'Please enter a longer description')
+    .required('Required field'),
+});
+
 function NewRecipe({ navigation }): React.ReactElement {
   const { updateRecipes } = useRecipesContext();
   const handleOnSubmit = (newValues) => {
@@ -46,6 +57,7 @@ function NewRecipe({ navigation }): React.ReactElement {
 
   return (
     <Formik
+      validationSchema={RecipeSchema}
       initialValues={{
         name: '',
         color: '#F44336',
@@ -56,7 +68,7 @@ function NewRecipe({ navigation }): React.ReactElement {
       onSubmit={(values) => handleOnSubmit(values)}
     >
       {({
-        handleChange, handleSubmit, values, setFieldValue
+        handleChange, handleSubmit, values, setFieldValue, errors, touched
       }) => (
         <SafeAreaView style={styles.container}>
           <Text style={styles.title}> Recipe name: </Text>
@@ -66,6 +78,9 @@ function NewRecipe({ navigation }): React.ReactElement {
             value={values.name}
             placeholder="Enter recipe name"
           />
+          {errors.name && touched.name ? (
+            <View>{errors.name}</View>
+          ) : null}
           <View style={styles.colorPicker}>
             <ColorPicker
               selectedColor={values.color}
@@ -82,6 +97,9 @@ function NewRecipe({ navigation }): React.ReactElement {
             multiline
             numberOfLines={10}
           />
+          {errors.description && touched.description ? (
+            <View>{errors.description}</View>
+          ) : null}
           <CustomMultiSelect />
           <SubmitButton handleOnPress={handleSubmit} title="Submit" />
         </SafeAreaView>
