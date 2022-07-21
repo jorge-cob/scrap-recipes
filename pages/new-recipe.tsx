@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  SafeAreaView, StatusBar, StyleSheet, TextInput, Text, View
+  StatusBar, StyleSheet, TextInput, Text, View, ScrollView
 } from 'react-native';
 import { Formik } from 'formik';
 import { ColorPicker } from 'react-native-btr';
@@ -72,7 +72,7 @@ function NewRecipe({ navigation }): React.ReactElement {
       {({
         handleChange, handleSubmit, values, setFieldValue, errors, touched
       }) => (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
           <Text style={styles.title}> Recipe name: </Text>
           <TextInput
             style={styles.input}
@@ -104,7 +104,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             />
           </View>
           <SubmitButton handleOnPress={handleSubmit} title="Submit" />
-        </SafeAreaView>
+        </ScrollView>
       )}
 
     </Formik>
