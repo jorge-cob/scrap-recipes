@@ -6,8 +6,9 @@ import { Formik } from 'formik';
 import { ColorPicker } from 'react-native-btr';
 import * as Yup from 'yup';
 import { useRecipesContext } from '../Context';
-import SubmitButton from '../components/button/button';
+import SubmitButton from '../components/button/Button';
 import CustomMultiSelect from '../components/multiSelect/CustomMultiSelect';
+import InputFeedback from '../components/feedback/InputFeedback';
 
 const styles = StyleSheet.create({
   container: {
@@ -79,7 +80,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             placeholder="Enter recipe name"
           />
           {errors.name && touched.name ? (
-            <View>{errors.name}</View>
+            <InputFeedback text={errors.name} type="error" />
           ) : null}
           <View style={styles.colorPicker}>
             <ColorPicker
@@ -98,7 +99,7 @@ function NewRecipe({ navigation }): React.ReactElement {
             numberOfLines={10}
           />
           {errors.description && touched.description ? (
-            <View>{errors.description}</View>
+            <InputFeedback text={errors.description} type="error" />
           ) : null}
           <CustomMultiSelect />
           <SubmitButton handleOnPress={handleSubmit} title="Submit" />

@@ -3,7 +3,7 @@ import {
   SafeAreaView, StatusBar, StyleSheet, Text, View,
 } from 'react-native';
 import { STRONG_ORANGE } from '../assets/theme/constants/Colors';
-import SubmitButton from '../components/button/button';
+import SubmitButton from '../components/button/Button';
 import List from '../components/list/List';
 import ListItem from '../components/list/ListItem';
 import SearchBox from '../components/searchbox/SearchBox';

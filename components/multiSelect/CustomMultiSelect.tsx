@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { MaterialIcons } from '@expo/vector-icons';
-import SubmitButton from '../button/button';
+import SubmitButton from '../button/Button';
 import { PURE_BLUE, STRONG_PURE_BLUE, WHITE } from '../../assets/theme/constants/Colors';
 
 const styles = StyleSheet.create({
