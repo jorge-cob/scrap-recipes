@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top'
   },
   colorPicker: {
+    alignSelf: 'center',
     marginVertical: 10,
     marginHorizontal: 10
   }
@@ -82,13 +83,6 @@ function NewRecipe({ navigation }): React.ReactElement {
           {errors.name && touched.name ? (
             <InputFeedback text={errors.name} type="error" />
           ) : null}
-          <View style={styles.colorPicker}>
-            <ColorPicker
-              selectedColor={values.color}
-              onSelect={(e) => setFieldValue('color', e)}
-              colors={colors}
-            />
-          </View>
           <Text style={styles.title}> Recipe description: </Text>
           <TextInput
             style={styles.input}
@@ -102,6 +96,13 @@ function NewRecipe({ navigation }): React.ReactElement {
             <InputFeedback text={errors.description} type="error" />
           ) : null}
           <CustomMultiSelect />
+          <View style={styles.colorPicker}>
+            <ColorPicker
+              selectedColor={values.color}
+              onSelect={(e) => setFieldValue('color', e)}
+              colors={colors}
+            />
+          </View>
           <SubmitButton handleOnPress={handleSubmit} title="Submit" />
         </SafeAreaView>
       )}
