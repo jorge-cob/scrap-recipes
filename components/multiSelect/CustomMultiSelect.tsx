@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignSelf: 'center',
     marginBottom: 30,
+    marginTop: 25,
     width: '96%'
   },
   newIngredientButton: {

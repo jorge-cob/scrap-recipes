@@ -6,21 +6,15 @@ import { SUCCESS_GREEN } from '../../assets/theme/constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    margin: 20
+    marginHorizontal: 20,
+    marginVertical: 10,
   },
   alertText: {
     fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
     color: '#ff0000',
   },
   successText: {
     fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
     color: SUCCESS_GREEN
   }
 });
