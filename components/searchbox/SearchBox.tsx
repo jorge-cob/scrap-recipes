@@ -20,13 +20,15 @@ function SearchBox({ onChangeSearchText, placeholder, title }): React.ReactEleme
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '100%',
   },
   input: {
     marginTop: 20,
     borderWidth: 1,
     borderRadius: 15,
-    width: 400,
+    flex: 1,
+    marginHorizontal: 20,
     padding: 10
   },
   title: {
