@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function CustomMultiSelect() {
+function CustomMultiSelect({ onConfirm }) {
   const [items, setItems] = useState([
     {
       name: '',
@@ -50,6 +50,7 @@ function CustomMultiSelect() {
 
   const onSelectedItemsChange = (selectedItems) => {
     setSelectedItems(selectedItems);
+    onConfirm(selectedItems);
   };
 
   function addItemToList(searchText: string) {

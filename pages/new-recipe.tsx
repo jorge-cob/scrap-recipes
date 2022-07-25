@@ -95,7 +95,7 @@ function NewRecipe({ navigation }): React.ReactElement {
           {errors.description && touched.description ? (
             <InputFeedback text={errors.description} type="error" />
           ) : null}
-          <CustomMultiSelect />
+          <CustomMultiSelect onConfirm={(e) => setFieldValue('basicIngredients', e)} />
           <View style={styles.colorPicker}>
             <ColorPicker
               selectedColor={values.color}
@@ -103,7 +103,10 @@ function NewRecipe({ navigation }): React.ReactElement {
               colors={colors}
             />
           </View>
-          <SubmitButton handleOnPress={handleSubmit} title="Submit" />
+          <SubmitButton 
+            handleOnPress={handleSubmit}
+            title="Submit"
+          />
         </ScrollView>
       )}
 
