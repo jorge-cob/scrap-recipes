@@ -92,7 +92,7 @@ function CustomMultiSelect({ onConfirm }) {
         readOnlyHeadings
         onSelectedItemsChange={onSelectedItemsChange}
         selectedItems={selectedItems}
-        noResultsComponent={(searchTerm) => AddItemComponent(searchTerm)}
+        renderNoResults={(searchTerm) => AddItemComponent(searchTerm)}
         styles={{ button: {
           backgroundColor: '#F44336',
           height: 60,
